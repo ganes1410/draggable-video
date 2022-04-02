@@ -1,0 +1,12 @@
+Requirements:
+1. Should work in both mobile and desktop. Use React for this.
+2. Write your own logic to handle Drag and Drop events
+3. The video element should be in the pause state by default.
+4. On click/touch of the video element, the video should play or pause.
+5. On dragging, the video should move but go to a paused state irrespective of
+the current state(playing or pause) of the video.
+6. You need to test it on a mobile device as well (not just on the desktop
+browser)
+Optional:
+6. The transition after you release the video should be smooth.
+7. Style the video container such that it stands out from the body.
