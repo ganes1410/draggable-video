@@ -1,7 +1,7 @@
 import React from "react";
 
-function Quadrant() {
-  return <div className="quadrant">Quadrant</div>;
+function Quadrant({ children }: { children?: React.ReactNode }) {
+  return <section className="quadrant">{children ? children : null}</section>;
 }
 
 export default Quadrant;

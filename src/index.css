@@ -18,3 +18,10 @@ body {
 .quadrant {
   border: 1px solid lightgreen;
 }
+
+video {
+  position: absolute;
+  bottom:0px;
+  left:0px;
+  object-fit:contain;
+}
