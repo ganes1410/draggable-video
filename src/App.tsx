@@ -1,7 +1,12 @@
+import Quadrant from "./Quadrant";
+
 function App() {
   return (
-    <div>
-      <h1>Hello</h1>
+    <div className="container">
+      <Quadrant />
+      <Quadrant />
+      <Quadrant />
+      <Quadrant />
     </div>
   );
 }
