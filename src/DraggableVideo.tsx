@@ -14,10 +14,20 @@ const DraggableVideo = forwardRef<HTMLVideoElement, {}>((_, ref) => {
     videoRef?.current?.pause();
   }
 
+  function togglePlay() {
+    if (videoRef?.current?.paused) {
+      videoRef?.current?.play();
+    } else {
+      videoRef?.current?.pause();
+    }
+  }
+
   return (
     <video
       draggable
+      muted
       onDragStart={onDragStart}
+      onClick={() => togglePlay()}
       ref={videoRef}
       controls
       src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"

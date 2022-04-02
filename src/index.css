@@ -10,8 +10,8 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  grid-template-rows: repeat(2,1fr);
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4,1fr);
   height: 100vh;
 }
 
@@ -33,4 +33,12 @@ video {
 
 .dragEnter {
   background-color: lightgray;
+}
+
+@media screen and (min-width:1200px) {
+  .container {
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+  }
+  
 }
