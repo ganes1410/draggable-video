@@ -1,3 +1,9 @@
+- Create a video element (with any mp4/mov video) of size: 200:300px (width:height) and
+place it at the bottom left of the screen.
+- You should be able to drag and drop the element at any corner of the screen. Consider
+the screen to be of 4 quarters and when you drop the element at any quarter, it
+should get placed at the corner of that quarter.
+
 Requirements:
 1. Should work in both mobile and desktop. Use React for this.
 2. Write your own logic to handle Drag and Drop events
