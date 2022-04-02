@@ -1,14 +1,25 @@
-import React from "react";
+import { forwardRef, MutableRefObject } from "react";
 
-function DraggableVideo() {
+type DragEvent = React.DragEvent<HTMLElement>;
+
+const DraggableVideo = forwardRef<HTMLVideoElement, {}>((_, ref) => {
+  // Typecast videoRef
+  const videoRef = ref as MutableRefObject<HTMLVideoElement>;
+
+  function onDragStart(event: DragEvent) {
+    const target = event.target as HTMLVideoElement;
+    target.classList.add("dragging");
+
+    // Pause the video when drag starts
+    videoRef?.current?.pause();
+  }
+
   return (
     <video
-      onDragStart={(event) => {
-        const target = event.target as HTMLVideoElement;
-        target.classList.add("dragging");
-      }}
-      controls
       draggable
+      onDragStart={onDragStart}
+      ref={videoRef}
+      controls
       src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
       poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
       width={200}
@@ -19,6 +30,6 @@ function DraggableVideo() {
       and watch it with your favorite video player!
     </video>
   );
-}
+});
 
 export default DraggableVideo;

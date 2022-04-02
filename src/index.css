@@ -17,6 +17,7 @@ body {
 
 .quadrant {
   border: 1px solid lightgreen;
+  position: relative;
 }
 
 video {

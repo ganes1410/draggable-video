@@ -2,7 +2,11 @@ import React from "react";
 
 type DragEvent = React.DragEvent<HTMLElement>;
 
-function Quadrant({ children }: { children?: React.ReactNode }) {
+interface IQuadrant {
+  videoRef: React.RefObject<HTMLVideoElement>;
+  children?: React.ReactNode;
+}
+function Quadrant({ children, videoRef }: IQuadrant) {
   function onDragEnter(event: DragEvent) {
     const target = event.target as HTMLElement;
     if (target.className === "quadrant") {
@@ -22,12 +26,33 @@ function Quadrant({ children }: { children?: React.ReactNode }) {
     target.classList.remove("dragging");
   }
 
+  // This event is needed to trigger the onDrop Event
+  function onDragOver(event: DragEvent) {
+    event.preventDefault();
+  }
+
+  function onDrop(event: DragEvent) {
+    const target = event.target as HTMLElement;
+
+    // move dragged elem to the selected drop target
+    if (target.className?.includes("quadrant")) {
+      target.classList.remove("dragEnter");
+
+      if (videoRef?.current?.parentNode) {
+        videoRef.current.parentNode.removeChild(videoRef.current);
+        target.appendChild(videoRef?.current);
+      }
+    }
+  }
+
   return (
     <section
       className="quadrant"
       onDragEnter={onDragEnter}
       onDragLeave={onDragLeave}
       onDragEnd={onDragEnd}
+      onDrop={onDrop}
+      onDragOver={onDragOver}
     >
       {children ? children : null}
     </section>
