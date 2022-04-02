@@ -3,7 +3,12 @@ import React from "react";
 function DraggableVideo() {
   return (
     <video
+      onDragStart={(event) => {
+        const target = event.target as HTMLVideoElement;
+        target.classList.add("dragging");
+      }}
       controls
+      draggable
       src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
       poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
       width={200}

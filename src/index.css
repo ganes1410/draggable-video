@@ -25,3 +25,11 @@ video {
   left:0px;
   object-fit:contain;
 }
+
+.dragging {
+  opacity: 0.5;
+}
+
+.dragEnter {
+  background-color: lightgray;
+}
