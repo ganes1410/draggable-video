@@ -16,15 +16,17 @@ body {
 }
 
 .quadrant {
-  border: 1px solid lightgreen;
+  border: 3px solid lightgreen;
   position: relative;
+  min-height: 200px;
 }
 
 video {
   position: absolute;
   bottom:0px;
   left:0px;
-  object-fit:contain;
+  border-radius: 10px;
+  background-color: lightcoral;
 }
 
 .dragging {

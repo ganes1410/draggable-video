@@ -6,6 +6,7 @@ interface IQuadrant {
   videoRef: React.RefObject<HTMLVideoElement>;
   children?: React.ReactNode;
 }
+
 function Quadrant({ children, videoRef }: IQuadrant) {
   function onDragEnter(event: DragEvent) {
     const target = event.target as HTMLElement;
@@ -32,14 +33,13 @@ function Quadrant({ children, videoRef }: IQuadrant) {
   }
 
   function onDrop(event: DragEvent) {
-    const target = event.target as HTMLElement;
+    const target = event.currentTarget as HTMLElement;
 
     // move dragged elem to the selected drop target
     if (target.className?.includes("quadrant")) {
       target.classList.remove("dragEnter");
 
       if (videoRef?.current?.parentNode) {
-        videoRef.current.parentNode.removeChild(videoRef.current);
         target.appendChild(videoRef?.current);
       }
     }
