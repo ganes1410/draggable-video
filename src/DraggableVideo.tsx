@@ -60,7 +60,9 @@ const DraggableVideo = forwardRef<
     }
   }
 
-  function onTouchEnd() {
+  function onTouchEnd(event: TouchEvent) {
+    const target = event.target as HTMLElement;
+    target.classList.remove("dragging");
     if (videoRef.current) {
       if (closestQuadrentRef.current) {
         closestQuadrentRef.current?.appendChild(videoRef?.current);
